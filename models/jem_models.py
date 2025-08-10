@@ -35,14 +35,17 @@ class CCF(F):
     def __init__(self, depth=28, width=2, norm=None, dropout_rate=0.0, n_classes=10, model='wrn', args=None):
         super(CCF, self).__init__(depth, width, norm=norm, dropout_rate=dropout_rate, n_classes=n_classes, model=model, args=args)
 
-    def forward(self, x, y=None):
-        logits = self.classify(x)
+    def forward(self, x):
+        return self.classify(x)
 
-        if y is None:
-            v = logits.logsumexp(1)
-            return v
-        else:
-            return t.gather(logits, 1, y[:, None])
+    # def forward(self, x, y=None):
+    #     logits = self.classify(x)
+
+    #     if y is None:
+    #         v = logits.logsumexp(1)
+    #         return v
+    #     else:
+    #         return t.gather(logits, 1, y[:, None])
 
 
 def init_random(args, bs):

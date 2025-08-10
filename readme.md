@@ -45,6 +45,12 @@ To evaluate the model (on CIFAR10), please refer to scripts/eval_sadajem.sh, all
 python eval_sadajem.py --eval test_clf --load_path $1
 ```
 
+### robust test accuracy
+
+```
+python cifar10_robustness_test_sadajem.py
+```
+
 ### generate from scratch
 
 ```
